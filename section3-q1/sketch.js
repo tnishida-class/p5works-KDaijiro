@@ -4,15 +4,20 @@
 function setup(){
   createCanvas(400, 400);
   background(255);
-  balloon("I love keyakizaka46");
+  balloon("プログラミング出来たら面白いけど難しい",20,30,0,255);
 }
 
-function balloon(t){
+function balloon(t,x,y,bc,tc){
+  // X,yを設定しないと吹き出しを動かせない
+  //bc,tc　背景やテキストの色を設定する
   let w = textWidth(t);
+  //テキストに適切な横幅
   let h = textAscent() + textDescent();
-  let p = 2;
-  fill(0);
-  rect(0, 0, w + p * 2, h + p * 2);
-  fill(255);
-  text(t, p, h + p);
+  let p = 5;//余白の大きさ
+  fill(bc);
+  rect(x, y, w + p * 2, h + p * 2);
+  fill(tc);
+  text(t, p+x, h + p+y);//（テキスト,始まりのx座標,始まりのy座標）
+  fill(bc);
+  triangle(x + w + p * 2, y+(h + p * 2)*2/3,x + w + p * 2, y+(h + p * 2)/3,2*x + w + p * 2,y+(h + p * 2)/2)
 }

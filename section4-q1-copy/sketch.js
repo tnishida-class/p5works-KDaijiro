@@ -15,7 +15,7 @@ function windowResized(){ // ウィンドウがリサイズされるたびにこ
 function draw(){
   background(160, 192, 255);
    count = (count + 1) % cycle;
-  if(keyIsDown("A".charCodeAt(0))){ count += 5; }
+  if(keyIsDown("F".charCodeAt(0))){ count += 5; }
   if(keyIsDown(" ".charCodeAt(0))){ count += 10; }
   size = count
   // BLANK[1]

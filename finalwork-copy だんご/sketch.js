@@ -1,5 +1,6 @@
 // 最終課題を制作しよう
 let x, y, vx, vy;
+let cx = 0;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
@@ -17,16 +18,19 @@ function draw(){
       // background(160, 192, 255);
       Dango(x, y, 50);
       y += 2;
-      if(y > height * 4/ 5){ y = 0; }
+      if(y-140 > height * 4/ 5){ y = 0; }
       // y = constrain(y, 0, height * 4/ 5);
       fill(169, 110, 45);
       rect(0, height * 4/ 5, width, height);
 
       push();
+      // let cx = 0;
       textSize(50);
       fill(0);
       textStyle(BOLD);
-      text("だんご!だんご!だんご!", width /3, height * 14 / 15);
+      text("だんご! だんご! だんご! ", cx, height * 14 / 15);
+      cx += 7;
+      if(cx > width){cx=-500;}
       pop();
     }
 

@@ -15,10 +15,8 @@ function setup(){
 
 function draw(){
     if(keyIsDown("D".charCodeAt(0))){
-      background(29, 32, 136);
+      background(84,195,241);
 
-      // background(84,195,241);
-      // background(160, 192, 255);
       Dango(x, y, 50);
       y += 1;
       // if(y-140 > height * 4/ 5){ y = 0; }
@@ -27,7 +25,7 @@ function draw(){
       rect(0, height * 4/ 5, width, height);
 
       push();
-      // let cx = 0;
+
       textSize(40);
       fill(0);
       textStyle(BOLD);
@@ -37,7 +35,7 @@ function draw(){
       pop();
 
       push();
-      Pacman(p, height * 3/5, height*2/5);
+      Pacman(p, height * 3/5, height*2/5,84,195,241);
       // Pacman(p, height * 7/10, height / 5);
       p += 8;
       if(p > width){ p = 0}
@@ -86,7 +84,7 @@ function draw(){
       pop();
 
       push();
-      Pacman(p, height * 3/5, height*2/5);
+      Pacman(p, height * 3/5, height*2/5,29, 32, 136);
       p += 5;
       if(p > width){ p = 0}
       pop();
@@ -102,7 +100,7 @@ function windowResized(){
 function Dango(x,y,r){
   push();
 
-  // strokeWeight(4);
+  strokeWeight(4);
   fill(77,181,106);
   line(x-140, y-140, x, y);
   fill(255, 192, 203);
@@ -128,12 +126,12 @@ function star(cx, cy, r, angle){
   endShape(CLOSE);
 }
 
-function Pacman(px,py,pr){
+function Pacman(px,py,pr,bc,bc2,bc3){
   noStroke();
   fill(255, 255, 0);
   ellipse(px, py, pr);
 
-  fill(29, 32, 136);
+  fill(bc,bc2,bc3);
   triangle(px, py, px+pr, py+pr/2, px+pr, py-pr/2);
 
   stroke('black');

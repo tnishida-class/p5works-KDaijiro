@@ -18,7 +18,7 @@ function draw(){
       background(84,195,241);
 
       Dango(x, y, 50);
-      y += 1;
+      y += 5;
       // if(y-140 > height * 4/ 5){ y = 0; }
       y = constrain(y, 0, height * 4/ 5);
       fill(169, 110, 45);
@@ -37,8 +37,10 @@ function draw(){
       push();
       Pacman(p, height * 3/5, height*2/5,84,195,241);
       // Pacman(p, height * 7/10, height / 5);
-      p += 8;
-      if(p > width){ p = 0}
+      p += 10;
+
+      if(p - height*2/5 / 2 > width){ p = -height*2/5 }
+      // if(p > width){ p = 0}
       pop();
 
       if(dist(p+height / 5, height * 7/10, x-35, y-35) < height/5) {
@@ -86,7 +88,7 @@ function draw(){
       push();
       Pacman(p, height * 3/5, height*2/5,29, 32, 136);
       p += 5;
-      if(p > width){ p = 0}
+      if(p - height*2/5 / 2 > width){ p = -height*2/5 }
       pop();
 
     }

@@ -1,7 +1,6 @@
 // 最終課題を制作しよう
 let x, y, vx, vy;
 let cx = 0;
-let p = 0;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
@@ -16,36 +15,23 @@ function setup(){
 function draw(){
     if(keyIsDown("D".charCodeAt(0))){
       background(84,195,241);
-
+      // background(160, 192, 255);
       Dango(x, y, 50);
-      y += 5;
-      // if(y-140 > height * 4/ 5){ y = 0; }
-      y = constrain(y, 0, height * 4/ 5);
+      y += 2;
+      if(y-140 > height * 4/ 5){ y = 0; }
+      // y = constrain(y, 0, height * 4/ 5);
       fill(169, 110, 45);
       rect(0, height * 4/ 5, width, height);
 
       push();
-
-      textSize(40);
+      // let cx = 0;
+      textSize(50);
       fill(0);
       textStyle(BOLD);
-      text("「だんごおおおおおおおおおお」", width*3/10, height * 14 / 15);
-      // cx += 5;
-      // if(cx > width){cx=-400;}
+      text("だんご! だんご! だんご! ", cx, height * 14 / 15);
+      cx += 7;
+      if(cx > width){cx=-500;}
       pop();
-
-      push();
-      Pacman(p, height * 3/5, height*2/5,84,195,241);
-      // Pacman(p, height * 7/10, height / 5);
-      p += 10;
-
-      if(p - height*2/5 / 2 > width){ p = -height*2/5 }
-      // if(p > width){ p = 0}
-      pop();
-
-      if(dist(p+height / 5, height * 7/10, x-35, y-35) < height/5) {
-        y = 0;
-      }
     }
 
     else {
@@ -82,15 +68,8 @@ function draw(){
       push();
       textSize(20);
       fill(0);
-      text("　　　　　　　「願い事は？」 　　　「だんご　だんご　だんご」", width /5, height * 10 / 11);
+      text("「願い事」", width * 4/9, height * 10 / 11);
       pop();
-
-      push();
-      Pacman(p, height * 3/5, height*2/5,29, 32, 136);
-      p += 5;
-      if(p - height*2/5 / 2 > width){ p = -height*2/5 }
-      pop();
-
     }
 }
 
@@ -103,7 +82,7 @@ function Dango(x,y,r){
   push();
 
   strokeWeight(4);
-  fill(77,181,106);
+  fill(43);
   line(x-140, y-140, x, y);
   fill(255, 192, 203);
   ellipse(x-105, y-105, r);
@@ -126,17 +105,4 @@ function star(cx, cy, r, angle){
     vertex(x,y);
   }
   endShape(CLOSE);
-}
-
-function Pacman(px,py,pr,bc,bc2,bc3){
-  noStroke();
-  fill(255, 255, 0);
-  ellipse(px, py, pr);
-
-  fill(bc,bc2,bc3);
-  triangle(px, py, px+pr, py+pr/2, px+pr, py-pr/2);
-
-  stroke('black');
-  strokeWeight(8);
-  point(px+pr/5, py-pr/4);
 }

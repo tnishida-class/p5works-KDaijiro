@@ -19,18 +19,20 @@ function draw(){
 
   // 重力（コメント機能でオンオフ切り替えて実行してみましょう）
   vy = constrain(vy + g, -vyMax, vyMax);
+  // ↑
+  // vy = vy + g;
+  // if(vy > vyMax) vy = vyMax;
+ // if(vy < -vyMax) vy = -vyMax;
 
   // 端の処理パターン (1) 反対側から出てくる
   if(x > width){ x = 0; }
   else if(x < 0){ x = width; }
   if(y > height){ y = 0; }
   if(y < 0){ y = height; }
+  // 次のように、同じ画面端の処理を条件分岐を使わないで書くこともできます（考えてみてください）。
+  // x = (x + width) % width;
+  // y = (y + height) % height;
 
-　//端の処理パターン (2) 跳ね返る
-  // if(x < 0 || x > width){ vx = -1 * vx; }
-  // if(y > height){ vy = -1 * vy; }
-  // x = constrain(x, 0, width);
-  // y = constrain(y, 0, height);
 }
 
 function windowResized(){

@@ -12,6 +12,9 @@ function setup(){
 
 function draw(){
   background(29, 32, 136);
+  noStroke();
+  // translate(width / 2, height / 2);
+  // rotate(PI / a);
   fill(255,255,0);
   star(x, y, 10, angle);
   x += vx;
@@ -30,6 +33,8 @@ function star(cx, cy, r, angle){
   beginShape();
   for(var i = 0; i < 20; i++){
     var theta = TWO_PI * i * 2 / 5 - HALF_PI;
+    // translate(width / 2, height / 2);
+    // rotate(PI / angle);
     theta += angle;
     // BLANK[1] (hint: angle 分だけ星を回転させるには？)
     var x = cx + cos(theta) * r;

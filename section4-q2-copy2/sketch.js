@@ -1,7 +1,5 @@
 // テキスト「アニメーション」
 let x, y, vx, vy;
-const g = 1; // 重力加速度
-const vyMax = 30;
 
 function setup(){
   createCanvas(windowWidth, windowHeight);
@@ -13,24 +11,25 @@ function setup(){
 
 function draw(){
   background(160, 192, 255);
-  ellipse(x, y, 20, 20);
-  x += vx;
-  y += vy;
-
-  // 重力（コメント機能でオンオフ切り替えて実行してみましょう）
-  vy = constrain(vy + g, -vyMax, vyMax);
+  // BLANK[2] (hint: 作った star 関数を使います)
 
   // 端の処理パターン (1) 反対側から出てくる
   if(x > width){ x = 0; }
   else if(x < 0){ x = width; }
   if(y > height){ y = 0; }
   if(y < 0){ y = height; }
+}
 
-　//端の処理パターン (2) 跳ね返る
-  // if(x < 0 || x > width){ vx = -1 * vx; }
-  // if(y > height){ vy = -1 * vy; }
-  // x = constrain(x, 0, width);
-  // y = constrain(y, 0, height);
+function star(cx, cy, r, angle){
+  beginShape();
+  for(var i = 0; i < 20; i++){
+    var theta = TWO_PI * i * 2 / 5 - HALF_PI;
+    // BLANK[1] (hint: angle 分だけ星を回転させるには？)
+    var x = cx + cos(theta) * r;
+    var y = cy + sin(theta) * r;
+    vertex(x,y);
+  }
+  endShape(CLOSE);
 }
 
 function windowResized(){
